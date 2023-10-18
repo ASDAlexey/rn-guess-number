@@ -1,15 +1,21 @@
-import React, { FC, useState } from 'react';
+import React, { useState } from 'react';
 import { Alert, StyleSheet, TextInput, View } from 'react-native';
 import { PrimaryButton } from '../components/PrimaryButton';
 
-export const StartGameScreen: FC = () => {
+type StartGameScreenProps = {
+  onPickNumber: (value: number) => void;
+};
+
+export const StartGameScreen = ({ onPickNumber }: StartGameScreenProps) => {
   const [enteredNumber, setEnteredNumber] = useState('');
 
   function numberInputHandler(enteredText: string): void {
     setEnteredNumber(enteredText);
   }
 
-  function resetInputHandler(): void {}
+  function resetInputHandler(): void {
+    setEnteredNumber('');
+  }
 
   function confirmInputHandler(): void {
     const chosenNumber = parseInt(enteredNumber, 10);
@@ -21,7 +27,7 @@ export const StartGameScreen: FC = () => {
       return;
     }
 
-    console.log('Valid numner!', chosenNumber);
+    onPickNumber(chosenNumber);
   }
 
   return (
@@ -32,6 +38,7 @@ export const StartGameScreen: FC = () => {
         keyboardType="number-pad"
         autoCapitalize="none"
         autoCorrect={false}
+        value={enteredNumber}
         onChangeText={numberInputHandler}
       />
       <View style={styles.buttonsContainer}>
