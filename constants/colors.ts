@@ -4,6 +4,6 @@ export const Colors = {
   primary500: '#72063c',
   primary600: '#640233',
   primary700: '#4e0329',
-  primary800: '#7e0943',
+  primary800: '#38011b',
   accent500: '#ddb52f',
 };
