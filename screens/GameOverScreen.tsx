@@ -5,9 +5,13 @@ import { Title } from '../components/ui/Title';
 import { Colors } from '../constants/colors';
 import { Fonts } from '../constants/fonts';
 
-export const GameOverScreen = () => {
-  const startNewGame = () => {};
+interface GameOverScreenProps {
+  roundsNumber: number;
+  userNumber: number;
+  onRestart: () => void;
+}
 
+export const GameOverScreen = ({ roundsNumber, userNumber, onRestart }: GameOverScreenProps) => {
   return (
     <View style={styles.rootContainer}>
       <Title>Game Over!</Title>
@@ -15,9 +19,10 @@ export const GameOverScreen = () => {
         <Image style={styles.image} source={require('../assets/images/success.jpg')} />
       </View>
       <Text style={styles.summaryText}>
-        Your phone needed <Text style={styles.highlight}>X</Text> rounds to guess the number <Text style={styles.highlight}>Y</Text>.
+        Your phone needed <Text style={styles.highlight}>{roundsNumber}</Text> rounds to guess the number{' '}
+        <Text style={styles.highlight}>{userNumber}</Text>.
       </Text>
-      <PrimaryButton onPress={startNewGame}>Start new game</PrimaryButton>
+      <PrimaryButton onPress={onRestart}>Start new game</PrimaryButton>
     </View>
   );
 };

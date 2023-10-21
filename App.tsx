@@ -20,6 +20,7 @@ export default function App() {
   // const [appIsReady, setAppIsReady] = useState(false);
   const [userNumber, setUserNumber] = useState(0);
   const [gameIsOver, setGameIsOver] = useState(false);
+  const [guessRounds, setGuessRounds] = useState(0);
 
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded || fontError) {
@@ -36,6 +37,16 @@ export default function App() {
     setGameIsOver(false);
   }
 
+  function gameOverHandler(): void {
+    setGameIsOver(true);
+  }
+
+  const startNewGameHandler = (): void => {
+    setUserNumber(0);
+    setGuessRounds(0);
+    setGameIsOver(false);
+  };
+
   let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />;
 
   if (userNumber) {
@@ -43,11 +54,7 @@ export default function App() {
   }
 
   if (gameIsOver) {
-    screen = <GameOverScreen />;
-  }
-
-  function gameOverHandler(): void {
-    setGameIsOver(true);
+    screen = <GameOverScreen roundsNumber={guessRounds} userNumber={userNumber} onRestart={startNewGameHandler} />;
   }
 
   return (
