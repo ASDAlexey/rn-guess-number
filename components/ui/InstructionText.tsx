@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { ViewStyle } from 'react-native/Libraries/StyleSheet/StyleSheetTypes';
 import { Colors } from '../../constants/colors';
+import { Fonts } from '../../constants/fonts';
 
 interface Props {
   children: string;
@@ -18,7 +19,7 @@ export const InstructionText = ({ children, style }: Props) => {
 
 const styles = StyleSheet.create({
   instructionText: {
-    fontFamily: 'open-sans',
+    fontFamily: Fonts.OpenSans,
     color: Colors.accent500,
     fontSize: 24,
   },

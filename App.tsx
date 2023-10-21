@@ -4,6 +4,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useCallback, useState } from 'react';
 import { ImageBackground, SafeAreaView, StyleSheet } from 'react-native';
 import { Colors } from './constants/colors';
+import { Fonts } from './constants/fonts';
 import { GameOverScreen } from './screens/GameOverScreen';
 import { GameScreen } from './screens/GameScreen';
 import { StartGameScreen } from './screens/StartGameSreen';
@@ -13,8 +14,8 @@ SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
-    'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
-    'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
+    [Fonts.OpenSans]: require('./assets/fonts/OpenSans-Regular.ttf'),
+    [Fonts.OpenSansBold]: require('./assets/fonts/OpenSans-Bold.ttf'),
   });
   // const [appIsReady, setAppIsReady] = useState(false);
   const [userNumber, setUserNumber] = useState(0);

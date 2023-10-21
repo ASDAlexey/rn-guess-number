@@ -1,5 +1,6 @@
 import { StyleSheet, Text } from 'react-native';
 import { Colors } from '../../constants/colors';
+import { Fonts } from '../../constants/fonts';
 
 type TitleProps = {
   children: string;
@@ -11,7 +12,7 @@ export const Title = ({ children }: TitleProps) => {
 
 const styles = StyleSheet.create({
   title: {
-    fontFamily: 'open-sans-bold',
+    fontFamily: Fonts.OpenSansBold,
     fontSize: 24,
     color: Colors.white,
     textAlign: 'center',

@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { Colors } from '../../constants/colors';
+import { Fonts } from '../../constants/fonts';
 
 interface NumberContainerProps {
   children: number;
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   numberText: {
-    fontFamily: 'open-sans-bold',
+    fontFamily: Fonts.OpenSansBold,
     color: Colors.accent500,
     fontSize: 36,
     textAlign: 'center',
