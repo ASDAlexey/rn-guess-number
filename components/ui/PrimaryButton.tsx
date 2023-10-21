@@ -3,7 +3,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Colors } from '../../constants/colors';
 
 type PrimaryButtonProps = {
-  children: string;
+  children: string | React.JSX.Element;
   onPress: () => void;
 };
 
