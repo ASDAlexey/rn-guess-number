@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, StyleSheet, TextInput, View, Text } from 'react-native';
+import { Alert, StyleSheet, TextInput, useWindowDimensions, View } from 'react-native';
 import { Card } from '../components/ui/Card';
 import { InstructionText } from '../components/ui/InstructionText';
 import { PrimaryButton } from '../components/ui/PrimaryButton';
@@ -11,6 +11,7 @@ type StartGameScreenProps = {
 };
 
 export const StartGameScreen = ({ onPickNumber }: StartGameScreenProps) => {
+  const { height } = useWindowDimensions();
   const [enteredNumber, setEnteredNumber] = useState('');
 
   function numberInputHandler(enteredText: string): void {
@@ -34,8 +35,10 @@ export const StartGameScreen = ({ onPickNumber }: StartGameScreenProps) => {
     onPickNumber(chosenNumber);
   }
 
+  const marginTop = height < 400 ? 30 : 100;
+
   return (
-    <View style={styles.rootContainer}>
+    <View style={{ ...styles.rootContainer, marginTop }}>
       <Title>Guess My Number</Title>
       <Card>
         <InstructionText>Enter a number</InstructionText>
@@ -64,7 +67,6 @@ export const StartGameScreen = ({ onPickNumber }: StartGameScreenProps) => {
 const styles = StyleSheet.create({
   rootContainer: {
     flex: 1,
-    marginTop: 100,
     alignItems: 'center',
   },
   numberInput: {
