@@ -35,7 +35,7 @@ export const StartGameScreen = ({ onPickNumber }: StartGameScreenProps) => {
     onPickNumber(chosenNumber);
   }
 
-  const marginTop = height < 400 ? 40 : 100;
+  const marginTop = height < 400 ? 45 : 100;
 
   return (
     <ScrollView>
